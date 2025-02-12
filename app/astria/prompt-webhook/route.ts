@@ -41,8 +41,12 @@ export async function POST(request: Request) {
     updated_at: string;
     images: string[];
   };
+
+  const incomingDataText = (await request.text())
+
+  console.log(incomingDataText);
   
-  const incomingData = (await request.json()) as { prompt: PromptData };
+  const incomingData = JSON.parse(incomingDataText) as { prompt: PromptData };
 
   const { prompt } = incomingData;
 
